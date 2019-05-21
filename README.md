@@ -207,9 +207,7 @@ You can use syntax highlighted code block now!
 - Pros: easy
 - Cons: Prism components are not split
 
-You can customized your own `CodeBlock` like [this](./src/CodeBlock.js).
-
-It will load only main prism js at start and load other components only if they are required. The code would be highlighted after the required prism components loaded.
+You can customized your own `CodeBlock` with code splitting like [this](./src/CodeBlock.js). It will load only main prism at start and load other components only if they are required. The code would be highlighted after the required prism components loaded.
 
 ## Summary
 
