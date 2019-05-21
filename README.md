@@ -125,7 +125,7 @@ Import `MDXProvider`:
   export default App;
 ```
 
-**Notice**: if you use [`mdx-loader`](https://mdxjs.com/getting-started/webpack#webpack), you might have to use [`@mdx-js/react`](https://mdxjs.com/getting-started/#mdxprovider) instead.
+**Notice**: if you are using [`mdx-loader`](https://mdxjs.com/getting-started/webpack#webpack), you might have to use [`@mdx-js/react`](https://mdxjs.com/getting-started/#mdxprovider) instead.
 
 Set components:
 
