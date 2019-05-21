@@ -148,7 +148,7 @@ You can see that your contents with MDX are applied Material UI components now.
 
 Try to customize all components. You can check [the table of components](https://mdxjs.com/getting-started#table-of-components) to know the tags to change. You can also [customize the wrapper](https://mdxjs.com/guides/wrapper-customization#using-the-wrapper-for-layout).
 
-You can use the [`markdown-it` demo code](./https://markdown-it.github.io/) to preview the result.
+You can use the [`markdown-it`](https://markdown-it.github.io/) [demo code](./src/Content.mdx) to preview the result.
 
 ### Syntax Highlighted
 
