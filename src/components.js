@@ -38,7 +38,7 @@ const components = {
   })(),
   blockquote: (() => {
     const Blockquote = props => (
-      <Paper style={{ borderLeft: '4px solid blue', padding: 8 }} {...props} />
+      <Paper style={{ borderLeft: '4px solid grey', padding: 8 }} {...props} />
     );
     return memo(Blockquote);
   })(),
@@ -93,6 +93,10 @@ const components = {
       return <input {...props} />;
     };
     return memo(Input);
+  })(),
+  wrapper: (() => {
+    const Wrapper = props => <div {...props} className="markdown-body" />;
+    return memo(Wrapper);
   })(),
 };
 

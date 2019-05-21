@@ -3,6 +3,7 @@ import { importMDX } from 'mdx.macro';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { MDXProvider } from '@mdx-js/tag';
 import components from './components';
+import './markdown.css';
 
 const Content = lazy(() => importMDX('./Content.mdx'));
 
