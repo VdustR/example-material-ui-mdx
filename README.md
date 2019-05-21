@@ -91,6 +91,17 @@ Add [CSS Baseline](https://material-ui.com/style/css-baseline/):
   export default App;
 ```
 
+Roboto Font:
+
+```diff
+      <title>React App</title>
++     <link
++       rel="stylesheet"
++       href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
++     />
+    </head>
+```
+
 ### Initial MDX Provider
 
 Import `MDXProvider`:
