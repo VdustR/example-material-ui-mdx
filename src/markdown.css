@@ -5,6 +5,22 @@
   margin-right: auto;
 }
 
+.markdown-body :not(pre) code,
+.markdown-body pre {
+  background: #eee;
+  border-radius: 4px;
+}
+
+.markdown-body :not(pre) code {
+  font-size: 0.8em;
+  padding: 0.05em;
+  border: 0.05em solid grey;
+}
+
+.markdown-body pre {
+  padding: 16px;
+}
+
 .markdown-body h1 {
   margin: 0.67em 0;
 }
