@@ -13,7 +13,7 @@
   ],
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^3.9.3",
+    "@material-ui/core": "^4.0.0-rc.0",
     "mdx.macro": "^0.2.8",
     "prismjs": "^1.16.0",
     "react": "^16.8.6",

@@ -51,9 +51,7 @@ const components = {
     return memo(Ol);
   })(),
   li: (() => {
-    const Li = props => (
-      <Typography {...props} style={{ display: 'list-item' }} component="li" />
-    );
+    const Li = props => <Typography {...props} component="li" />;
     return memo(Li);
   })(),
   table: (() => {
