@@ -93,7 +93,7 @@ Add [CSS Baseline](https://material-ui.com/style/css-baseline/):
   export default App;
 ```
 
-Roboto Font:
+Add Roboto Font into `public/index.html`:
 
 ```diff
       <title>React App</title>
@@ -161,7 +161,7 @@ You can see that your contents with MDX are applied Material UI components now.
 
 Try to customize all components. You can check [the table of components](https://mdxjs.com/getting-started#table-of-components) to know the tags to change.
 
-You can also [customize the wrapper](https://mdxjs.com/guides/wrapper-customization#using-the-wrapper-for-layout). It's great to add a class name to handle the gutter between components like [markdown.css](./src/markdown.css) inspired from [github-markdown-css](https://github.com/sindresorhus/github-markdown-css/blob/gh-pages/github-markdown.css)
+You can also [customize the wrapper](https://mdxjs.com/guides/wrapper-customization#using-the-wrapper-for-layout). It's great to add a class name to handle the gutter between components like [markdown.css](./src/markdown.css) inspired from [github-markdown-css](https://github.com/sindresorhus/github-markdown-css/blob/gh-pages/github-markdown.css).
 
 You can use the [`markdown-it`](https://markdown-it.github.io/) [demo code](./src/Content.mdx) to preview the result.
 
