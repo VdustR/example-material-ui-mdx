@@ -8,6 +8,8 @@ We will integrate MDX with following modules:
 - [Material UI v4](https://next.material-ui.com/) components
 - Syntax highlighted with [Prism](https://prismjs.com/)
 
+Totally, it's aim to render [the markdown source](./src/Content.mdx) to [this](https://vdustr.github.io/example-material-ui-mdx/).
+
 ## Guide
 
 ### Initial React App
