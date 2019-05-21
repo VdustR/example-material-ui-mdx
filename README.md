@@ -1,68 +1,216 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Material UI MDX Example
 
-## Available Scripts
+This is an simple example for custom styled MDX.
 
-In the project directory, you can run:
+We will integrate MDX with following modules:
 
-### `npm start`
+- [Create React App](https://facebook.github.io/create-react-app/) for build environment
+- [Material UI v4](https://next.material-ui.com/) components
+- Syntax highlighted with [Prism](https://prismjs.com/)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Guide
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### Initial React App
 
-### `npm test`
+Execute following command to create a React app:
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npx create-react-app my-app
+cd my-app
+```
 
-### `npm run build`
+### Install MDX
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Execute following command to install `mdx.macro`:
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+```bash
+yarn add mdx.macro
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Then create the following `src/App.js`:
 
-### `npm run eject`
+```jsx
+// src/App.js
+import React, { lazy, Suspense } from 'react';
+import { importMDX } from 'mdx.macro';
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+const Content = lazy(() => importMDX('./Content.mdx'));
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+const App = () => (
+  <div>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Content />
+    </Suspense>
+  </div>
+);
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+export default App;
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+And then create the following `src/Content.mdx`:
 
-## Learn More
+```md
+# Hello, world!
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+[🔗 Reference: Getting Started - Create React App](https://mdxjs.com/getting-started/create-react-app)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Setup Material UI
 
-### Code Splitting
+Install Material UI:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+```bash
+yarn add -D @material-ui/core@next
+```
 
-### Analyzing the Bundle Size
+Add [CSS Baseline](https://material-ui.com/style/css-baseline/):
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+```diff
+  import React, { lazy, Suspense } from 'react';
+  import { importMDX } from 'mdx.macro';
++ import CssBaseline from '@material-ui/core/CssBaseline';
 
-### Making a Progressive Web App
+  const Content = lazy(() => importMDX('./Content.mdx'));
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+  const App = () => (
+-   <div>
+-     <Suspense fallback={<div>Loading...</div>}>
+-       <Content />
+-     </Suspense>
+-   </div>
++   <>
++     <CssBaseline />
++     <div>
++       <Suspense fallback={<div>Loading...</div>}>
++         <Content />
++       </Suspense>
++     </div>
++   </>
+  );
 
-### Advanced Configuration
+  export default App;
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+### Initial MDX Provider
 
-### Deployment
+Import `MDXProvider`:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+```diff
+  import React, { lazy, Suspense } from 'react';
+  import { importMDX } from 'mdx.macro';
+  import CssBaseline from '@material-ui/core/CssBaseline';
++ import { MDXProvider } from '@mdx-js/tag';
++ import components from './components';
 
-### `npm run build` fails to minify
+  const Content = lazy(() => importMDX('./Content.mdx'));
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+  const App = () => (
+    <>
+      <CssBaseline />
+-     <div>
+-       <Suspense fallback={<div>Loading...</div>}>
+-         <Content />
+-       </Suspense>
+-     </div>
++     <MDXProvider components={components}>
++       <div>
++         <Suspense fallback={<div>Loading...</div>}>
++           <Content />
++         </Suspense>
++       </div>
++     </MDXProvider>
+    </>
+  );
+
+  export default App;
+```
+
+**Notice**: if you use [`mdx-loader`](https://mdxjs.com/getting-started/webpack#webpack), you might have to use [`@mdx-js/react`](https://mdxjs.com/getting-started/#mdxprovider) instead.
+
+Set components:
+
+```jsx
+// src/components.js
+import React, { memo } from 'react';
+import Typography from '@material-ui/core/Typography';
+
+const components = {
+  h1: (() => {
+    const H1 = props => <Typography {...props} component="h1" variant="h1" />;
+    return memo(H1);
+  })(),
+};
+
+export default components;
+```
+
+You can see that your contents with MDX are applied Material UI components now.
+
+Try to customize all components. You can check [the table of components](https://mdxjs.com/getting-started#table-of-components) to know the tags to change. You can also [customize the wrapper](https://mdxjs.com/guides/wrapper-customization#using-the-wrapper-for-layout).
+
+You can use the [`markdown-it` demo code](./https://markdown-it.github.io/) to preview the result.
+
+### Syntax Highlighted
+
+You can use `prism-react-renderer` directly:
+
+```bash
+yarn add prism-react-renderer
+```
+
+Create a `CodeBlock` component:
+
+```jsx
+// src/CodeBlock.js
+import React from 'react';
+import Highlight, { defaultProps } from 'prism-react-renderer';
+export default ({ children, className }) => {
+  const language = className.replace(/language-/, '');
+  return (
+    <Highlight {...defaultProps} code={children} language={language}>
+      {({ className, style, tokens, getLineProps, getTokenProps }) => (
+        <pre className={className} style={{ ...style, padding: '20px' }}>
+          {tokens.map((line, i) => (
+            <div key={i} {...getLineProps({ line, key: i })}>
+              {line.map((token, key) => (
+                <span key={key} {...getTokenProps({ token, key })} />
+              ))}
+            </div>
+          ))}
+        </pre>
+      )}
+    </Highlight>
+  );
+};
+```
+
+Add `CodeBlock` to `MDXProvider`:
+
+```diff
+  import React, { memo } from 'react';
+  import Typography from '@material-ui/core/Typography';
++ import CodeBlock from './CodeBlock';
+
+  const components = {
+    h1: (() => {
+      const H1 = props => <Typography {...props} component="h1" variant="h1" />;
+      return memo(H1);
+    })(),
++   code: CodeBlock,
+  };
+
+  export default components;
+```
+
+You can use syntax highlighted code block now!
+
+- Pros: easy
+- Cons: Prism components are not split
+
+You can customized your own `CodeBlock` like [this](./src/CodeBlock.js).
+
+It will load only main prism js at start and load other components only if they are required. The code would be highlighted after the required prism components loaded.
+
+## Summary
+
+You can check the completed components [here](./src/components.js).

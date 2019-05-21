@@ -1,11 +1,30 @@
 {
   "name": "example-material-ui-mdx",
   "version": "0.1.0",
+  "description": "Material UI MDX with Prism Example",
+  "keywords": [
+    "mdx",
+    "markdown",
+    "react",
+    "jsx",
+    "material-ui",
+    "prism",
+    "syntax-highlighted"
+  ],
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^3.9.3",
+    "mdx.macro": "^0.2.8",
+    "prismjs": "^1.16.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1"
+  },
+  "devDependencies": {
+    "prettier": "^1.17.1"
+  },
+  "resolutions": {
+    "babel-loader": "8.0.5"
   },
   "scripts": {
     "start": "react-scripts start",
