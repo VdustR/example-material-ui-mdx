@@ -18,6 +18,9 @@ action "Build" {
   uses = "nuxt/actions-yarn@master"
   args = "build"
   needs = ["Install"]
+  env = {
+    PUBLIC_URL = "/example-material-ui-mdx"
+  }
 }
 
 action "Deploy to GitHub Pages" {
