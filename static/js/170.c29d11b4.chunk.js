@@ -1,0 +1,2 @@
+(window["webpackJsonpexample-material-ui-mdx"]=window["webpackJsonpexample-material-ui-mdx"]||[]).push([[170],{200:function(n,a){Prism.languages.jsonp=Prism.languages.extend("json",{punctuation:/[{}[\]();,.]/}),Prism.languages.insertBefore("jsonp","punctuation",{function:/[_$a-zA-Z\xA0-\uFFFF][$\w\xA0-\uFFFF]*(?=\s*\()/})}}]);
+//# sourceMappingURL=170.c29d11b4.chunk.js.map

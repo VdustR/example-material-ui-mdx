@@ -1,0 +1,2 @@
+(window["webpackJsonpexample-material-ui-mdx"]=window["webpackJsonpexample-material-ui-mdx"]||[]).push([[326],{356:function(a,e){Prism.languages["t4-vb"]=Prism.languages["t4-templating"].createT4("visual-basic")}}]);
+//# sourceMappingURL=326.b35ea7bd.chunk.js.map

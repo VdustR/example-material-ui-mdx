@@ -1,0 +1,2 @@
+(window["webpackJsonpexample-material-ui-mdx"]=window["webpackJsonpexample-material-ui-mdx"]||[]).push([[107],{137:function(m,e){Prism.languages.git={comment:/^#.*/m,deleted:/^[-\u2013].*/m,inserted:/^\+.*/m,string:/("|')(?:\\.|(?!\1)[^\\\r\n])*\1/m,command:{pattern:/^.*\$ git .*$/m,inside:{parameter:/\s--?\w+/m}},coord:/^@@.*@@$/m,commit_sha1:/^commit \w{40}$/m}}}]);
+//# sourceMappingURL=107.e971f3bf.chunk.js.map
